@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d22027;
+    padding: 1rem;
+}
+
+.logo {
+    color: white;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style-type: none;
+    margin-right: 2rem;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem; 
+    width: 100%;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-right: 1rem;
+    width: 250%; 
+}
+
+.nav-icons {
+    width: 100%;
+    height: 100%;
+    margin-left: 1rem;
+    display:flex;
+
+}
+
+.main-content {
+    margin-left: 100px;
+    margin-right: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.second {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+.product-category {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.product-category img {
+    width: 100%;
+    height: auto;
+}
+
+.product-category p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #d22027;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #c21820;
+}
+
+.scroll-container {
+    position: relative;
+    width: 100%;
+    margin: 20px; /* Add margin around the container */
+    overflow: hidden; /* Ensure that overflow content is hidden */
+    margin-left: 50px;
+    margin-right: 5000px;
+}
+
+.scroll-wrapper {
+    overflow-x: auto; /* Allow horizontal scrolling */
+    white-space: nowrap; /* Ensure products are in a single line */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    margin-right: 50px;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.scroll-content {
+    display: flex; /* Use flexbox to arrange products in a row */
+}
+
+.product-card {
+    display: inline-block; /* Display product cards inline */
+    width: 250px; /* Set width for product cards */
+    margin: 0 10px; /* Set horizontal margin for spacing between cards */
+    background: #fff; /* Background color of product cards */
+    padding: 10px; /* Padding inside product cards */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for card effect */
+    text-align: center; /* Center align text in cards */
+}
+
+.product-card img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Keep aspect ratio of images */
+}
+
+.old-price {
+    text-decoration: line-through; /* Strike-through effect for old price */
+    color: red; /* Color for old price */
+}
+
+.scroll-buttons {
+    position: absolute; /* Position buttons absolutely */
+    top: 50%; /* Center buttons vertically */
+    width: 100%; /* Full width for buttons */
+    display: flex; /* Use flexbox for button arrangement */
+    justify-content: space-between; /* Space buttons to left and right */
+    transform: translateY(-50%); /* Center buttons vertically */
+}
+
+.scroll-btn {
+    background-color: rgba(0, 0, 0, 0.6); /* Background color for buttons */
+    color: white; /* Text color for buttons */
+    border: none; /* Remove border */
+    font-size: 24px; /* Font size for buttons */
+    cursor: pointer; /* Pointer cursor for buttons */
+    padding: 10px; /* Padding for buttons */
+    opacity: 0.5; /* Initial opacity for buttons */
+    transition: opacity 0.3s; /* Transition effect for opacity */
+}
+
+.scroll-btn:hover {
+    opacity: 1; /* Increase opacity on hover */
+}
+
+.left-btn {
+    left: 0; /* Position left button */
+}
+
+.right-btn {
+    right: 0; /* Position right button */
+}
+.rectangle-photos {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space the photos evenly */
+    margin: 20px; /* Margin around the container */
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.rectangle-photo {
+    flex: 1; /* Each photo takes equal space */
+    margin: 0 10px; /* Horizontal margin for spacing */
+}
+
+.rectangle-photo img {
+    width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: round the corners */
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .main-content, .second {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .product-category {
+        margin-bottom: 20px; /* Add space between items when stacked */
+    }
+}

@@ -1,0 +1,186 @@
+1. What's HTML ? 
+HTML stands for Hyper Text Markup Language that allows the user to create
+simple web pages with the help of html elements called tags to display content and interact with the user. 
+
+2. Explain the structure of HTML document. 
+HTML document has a simple structure starting with Doctype tag that declares the
+version of HTML to be used by browser. Then the <html> tag that defines where the html code starts and where it ends. Inside it is the <head> tag that contains the <title> tag for setting title of the page. 
+The head tag also has the style and script tags inside it if you want to use interal css styling or use javascript funcitonality in 
+your project. After the head tag u have the main body tag that has all the other usable tags inside it that makes the main content of your webpage. 
+Body tag is also inside the html tag. 
+
+3. What are elements, attributes and values in HTML ?
+- Elements are represented by tags (<>) and self closing tags (</>). They define the main structure of the page. 
+examples of elements are p, br, input, image, div, span, a, etc. 
+- Attributes provide additional information about the element and adds more properties to it. They are only 
+added to the opening tag of the html element. 
+Examples of attributes are style, href, alt, class, id, etc. 
+- Values are the things that we assign to attributes. Let's say in href we assign a certain link, href="abc.com" then 
+abc.com is the value that we gave to href attribute
+
+4. What is the difference between block-level and inline elements ?
+- Block level elements take full width of the page, they start on a new line. They can contain other block level 
+and inline elements eg. p, div, table, h1-h6.
+- Inline level elements take only as much width as needed. They don't start on a new line. They can't contain block level elements
+inside them. eg. span, a, img, input, etc. 
+
+5. How to create a basic HTML table ?
+- To create a HTML table we first type the table element with opening and closing tags. <table></table>
+inside the table we define the table row by the <tr></tr> opening and closing tags. Inside the row we can 
+either add the table data <td></td> tag or table header tag <th></th>depending on the structure of table needed. 
+
+----------------------------------------------------------------
+
+
+1. What is semantic HTML and why is it important ?
+- Semantic HTML refers to using semantic html tags to improve the meaning and strucutre of web content to make it easier for the 
+developer to understand the code. Eg. using section tags like header, footer, section, article to have better looking code.
+The browser also is able to interpret the code faster. 
+
+2. Explain the purpose of header, nav, main, footer and aside elements. 
+- header: defines the top structure of the document. Mostly has the navbars of the page that contains the logo of the page,
+ search box, login, account and other navigation buttons. 
+- nav : 
+- main : Defines the main content of the web page. Should have most important part of the page. The body. Each document can only have one main element inside.
+- footer: defines the bottom part of the page. Has the contact info, copytight info, social media links, etc and other links provided by the host to the client. 
+- aside: -
+
+3. How do u create a search form using semantic HTML ?
+- We create a <form> element having a input field using the input tag and a submit button using the button tag. 
+
+4. Diff betw section and article elements ?
+- 
+
+5. How do u structure a blog post using semantic HTML ?
+- First the header section having name of the blog, the logo, the search box to searh other blogs on the site. 
+Then the section element which will have the info of the blog that is currently displayed, it will have the introduction,
+date, name of the writer and what categroy of blog it comes in etc. 
+Then we'll have the main element which will have the main content of the blog, all the para and images used. and the links mentioned
+. Then we'll put a footer element for the contact info, copyright info, social media links, etc. 
+
+----------------------------------------------------------------
+
+1. How do u create a basic HTML form ?
+- We can create a simple html form using <form> element which will have a input field using the input tag and a submit button using the button tag.
+
+2. Different types of input elements in HTML? 
+- text for standard text input. Password for a hidden value input. url for url value input.
+
+3. How do u create a radio button group ?
+- Inside the form tag, give value as radio to the input element. then you'll have a single selectable option for your form.
+
+4. How do u create a checkbox group ?
+- Inside the form tag, give value as checkbox to the input element. then you'll have multiple selectable options for your form.
+
+5. How do u validate form input using HTML5 attributes ?
+- Html provides a set of default form input attributes such as required, type, min, max, autocomplete, etc 
+that display error on the page if the proper input isn't given. 
+
+----------------------------------------------------------------
+
+1. How do u create a hyperlink in HTML ? 
+- basic syntax for creating hyperlink: <a href="amazon.com"> This is link for amazon</a>.
+href specifies the url of the linked resource. a tag is used to add links to html webpage.
+
+2. Diff betw absolute and relative URLs ?
+- Absolute urls have the complete structure of the url. having https or http protocol and domain name and a .com or .in 
+eg: https://example.com
+- Relative urls dont have the complete structure of the url. They rely on the current context and location of the page.
+Eg: calling other files from same folder: file.txt, or files from parent folder "./css/index/css" ,etc.
+
+3. How do u embed an image in an HTML document ?
+- We use the img element to embed image in an HTML document. The syntax for it is : <img src="url" alt="some image">
+src attribute specifies the image url, alt specifies the alternative text to display if the image isn't displayed. 
+
+4. What is the alt attribute for images and why is it important ?
+- alt specifies the alternative text to display if the image isn't displayed. It's important so that the user knows what 
+image was supposed to be displayed at the certain place. 
+
+5. How do you create a responsive image using the srcset attribute ?
+- 
+
+----------------------------------------------------------------
+
+1. What is CSS ?
+- CSS stands for Cascading style sheets and it's used to control the layout and visual appreance of web page.
+
+2. How do you link a CSS file to an HTML document ?
+- For external CSS: <style>
+ <link rel="stylesheet" type="text/css" href="style.css">
+ </style>
+
+  - For importing css within HTML. 
+  <head> 
+    <style>
+        @import url("style.css");
+    </style>
+  </head>
+
+  Or directly import it on top :
+  import 'index.css'
+
+3. Explain the concept of the CSS box model. 
+-> css box model represents the structure of every element as a box model. it has a element margin inside which there's
+element border inside which there's element padding and then the main area for the content. 
+
+(margin)
+(border)
+(padding)
+(----CONTENT---)
+(/padding)
+(/border)
+(/margin)
+
+4. Different ways to apply css styles
+-> Inline : directly inside the opening tag of the element, using the style attribute. It's easy quick. But
+makes applying css tedious for big webpage. limited to that element.
+-> Internal :  Applied inside the style element inside the head element. Makes applying css to multiple tags at once
+much easier. Limited to one application
+-> External: Applied in the link tag inside the head element using href for location and src as stylesheet to
+declare the import as stylesheet. 
+
+5. How do u set the background color and image for an element ?
+-> we can set background color and image for an element using background color and background image attributes of 
+the style tag
+
+----------------------------------------------------------------
+
+1. What are the different types of CSS selectors ?
+-> Basic: class, id, * (all), 
+Combinators: Child >, Sibling ~, 
+Pseudo class: hover, first-child, last-child, nth-child, 
+
+2. Explain the difference between class and id selectors.
+-> class selector can be used for multiple elements multiple times.
+id selector can't be reused and can be used for one unique element only.
+
+3. How do u select elements based on their attributes ?
+-> By using attribute selectors. Foreg. input[ type: text] {width: 100%;}
+
+4. What is the pseudo class selector hover used for ?
+-> used to apply styling to the element when the mouse is hovered on that element. 
+
+5. How do u select elements based on their parent-child relationships?
+-> By using combinators. decendant, child, sibling
+E.g. div p {color : blue}
+
+----------------------------------------------------------------
+
+1. What r the different properties used to control the layout of elements ?
+-> There are display props like display:block, inline-blox, then visiblity : visible/ hidden.
+Then there are width, height properties, flexbox properties: wrap, direction row- column, 
+
+2. How do u change the font family, size and color of text ?
+-> By using the font-family, font-size and colour proerties. 
+E.g. p {font-family: Arial, font-size: 12px; color: black}
+
+3. What are the different units used for measuring length in CSS ?
+-> px, %, em, rem
+
+4. How do you center an element both horizontally and vertically ?
+-> By using display-flex; justify-content: center: align-items:center;
+
+5.How do u create a responsive layout using CSS media queries ?
+-> identify screen size for your device, let's say: mobile is 320px - 
+
+
