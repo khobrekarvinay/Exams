@@ -1,0 +1,109 @@
+Q.1 Explain the difference between primitive types and reference data types in JavaScript
+-> Primitive data types are stored as raw value whereas reference data types are stored as references 
+i.e pointers. Primitive data types have fixed sized, while reference have variable size. 
+Primitve is passed by value, and reference is passed by reference
+Primitive eg: numbers, string, undefined, boolean, null 
+Reference eg: array, objects, functions and classes
+
+
+Q2. Difference betwn var, let and const keywords ?
+-> All three are used to declare variables. they have different scopes, hoisting, and reassign behaviours. 
+Global scope: var, const
+Block scope: let
+
+var can be hoisted,  let const dont support hoisting. 
+var and let can be reassigned, const cant be resassigne
+
+Q3. How do you define a function in Javascript ? Explain the difference between function declarations and expressios.js functions
+-> Functions are resusable blocks of code. They are defined using the function keyword. 
+eg: function abc(params){
+    //console.log(abcd);
+}
+In function expression u assign a function to a variable. 
+const abcf= function heart(abc){
+
+}
+While in declaration you follow the original syntax mentioned above. 
+Difference is declarations are of global scope whereas function expressions are scoped to the block 
+they're defined in. 
+
+Q4. Describe the concept of scope in JavaScript. What is the difference between global scope and local scope ?
+-> Scope is the region or area in which a function, variable or object is defined and accessible. 
+There are 3 types of scope, global scope, local scope and block scope. 
+
+Variable declared outside any functions or block have global scope. They can be accessed anywhere in the code. 
+Variables declared within a function or block have local scope. And same as before they're accessible within the function or block. 
+These variables are destroyed when the function/block completes. 
+
+Variables defined with let and const within a block have block scope. They're only accessible in the block, and then destroyed when the block ends. 
+
+Q5. Closures: Explain closures and their use cases in JavaScript
+-> In simple words a closure is a function that has access to is own scope as well as the scope of it's outer functions. 
+Inner function can access and modify outer functions variables. 
+
+Q6. How do you create objects in JavaScript ? Explain the difference between object literals and constructors.
+-> You can create object in javascript by using curly braces {} or by by using the object constructor function. 
+const person = {}  or const person = new Object.create({ name: 'John', age: 13 }); 
+
+Q7. Arrays: What are the different methods to iterate over an array in JavaScript ? 
+-> there are many methods that iterate over arrays in javascript each with different function. 
+for loop, while loop, for of loop, for in loop, array.forEach(func), then array.filter(func), then array.reduce(func), then array.map()
+
+Q8. this keyword: Explain how the this keyword works in different contexts (e.g., global, object methods, event handlers)
+-> Mostly refers the global object, sometimes used to refers the method's object. In event listener context, this refers to the element that
+triggered the event listener. 
+
+Q9. Promises: What are promises in javascript ? explain how to use them to handle asynchronous operations. 
+-> promise is a object that represents a value which may be available now, in the future, or never. They r mainly used to handle asynchronous operations.
+Promises have 3 states: Pending, Fulfilled or Rejected 
+Syntax: new Promise ((resolve, reject)=> (...))
+Promise.resolve(value)
+Promise.reject(error)
+
+Q10. Async/Await: Explain how async/await syntax simplifies asynchronous programming in JavaScript ?
+-> The async keyword used on function returns a promise and the await keyword pauses the execution of the promise until it's resolve. i.e keeps it pending. 
+Any code after await runs only after Promise is resolved. 
+It simplifies the Promises syntax by a lot. Helps with quicker coding and understablitily.
+
+Q11. Explain Event loop. and how it handles asynchronous operations ?
+-> Event loop is a proces thorugh which we can handle asynchronous operations to allow efficient execution of tasks. 
+There are 3 parts to it
+Stack: JavaScript as it is single threaded uses a stack to store function variable calls. 
+Queue: Asynchronous operations are added to a queue. 
+WebApi: The webApi is the browser side requests handled by the browser. Includes all asynchronous operations like fetch, settimeout.
+
+Q12. Prototypal Inheritance: Explain prototypal inheritance in JavaScript and how it differs from classical inheritance. 
+-> Both are ways to implement inheritance in JavaScript. 
+
+Q13. Modules: How do u create and import modules in Javascript using CommonJS or ES6 modules ?
+-> let's say we create a math.js file with the add function inside it then syntax for
+commonJS: require('./math')
+ES6: import {add} from './math.js' ;
+
+Q14. DOM Manipulation: Explain how to manipulate the Document Object Model (DOM) using JavaScript.
+-> 
+
+Q15. AJAX. What is AJAX ? Explain how to make AJAX requests using Javascript. 
+-> 
+
+Q16. WebStorage. What is the difference between localStorage and sessionStorage in Javascript ?
+-> Both are mechanisms for storing data locally in a user's browser. 
+Localstorage stores data permanently until explicity cleared, and sessionStorage stores data temporarily for that particular session. 
+sessionStorage gets cleared after the tab or browser is closed. Whereas localstorage isnt cleared after closing. 
+
+Q17. How to use regular expressions in JavaScript for pattern matching ? 
+-> 
+
+Q18. Error Handling. How do you handle errors in JavaScript using try..catch blocks and custom error objects ? 
+-> Error handling prevents application crashes, gives error messages. In javascript error handling is done by try & catch blocks
+. Syntax : try {
+    (code that might throw error)
+}
+catch(error){ 
+    Handle the eror
+}
+Sometimes we also use the finally block, to pass code to run regarless of error
+
+
+
+
