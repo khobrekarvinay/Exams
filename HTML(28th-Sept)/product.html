@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+    <!-- Product Page Container -->
+    <nav class="navbar">
+        <!-- First Row: Logo, Search Bar, and Icons -->
+        <div class="search-bar">
+            <div class="logo">
+                <img src="https://www.overstock.com/cdn/shop/files/Group_570.svg?v=1719045744&width=194"
+                    alt="Overstock">
+            </div>
+            <input type="text" placeholder="Search Crazy-Good Deals">
+            <div class="nav-icons">
+                <a href="#"><span class="material-symbols-outlined">
+                        person
+                    </span></a>
+                <a href="#"><span class="material-symbols-outlined">
+                        notifications
+                    </span></a>
+                <a href="#"><span class="material-symbols-outlined">
+                        shopping_bag
+                    </span></a>
+            </div>
+        </div>
+
+        <!-- Second Row: Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="#">Furniture</a></li>
+            <li><a href="#">Rugs</a></li>
+            <li><a href="#">Decor & Lighting</a></li>
+            <li><a href="#">Patio & Outdoor</a></li>
+            <li><a href="#">Jewelry</a></li>
+            <li><a href="#">Clothing</a></li>
+            <li><a href="#">Home Improvement</a></li>
+            <li><a href="#">Factory Direct</a></li>
+            <li><a href="#">Liquidation</a></li>
+            <li><a href="#">More</a></li>
+            <li><a href="#">Top Deals</a></li>
+        </ul>
+    </nav>
+
+    <div class="product-page">
+        <!-- Left side: Product Images -->
+        <div class="product-images">
+            <div class="main-image">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_fd5ae145-b115-4060-a793-0020244d0395.jpg?v=1728071781&width=640"
+                    alt="Product Image" />
+            </div>
+            <div class="arrow-buttons">
+                <button class="prev">Previous</button>
+                <button class="next">Next</button>
+            </div>
+            <div class="image-thumbnails">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_fd5ae145-b115-4060-a793-0020244d0395.jpg?v=1728071781&width=640"
+                    alt="Thumbnail 1" onclick="setImage(1)">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_2bfb71b8-9ba4-4c17-a3be-69c0f8728b48.jpg?v=1728071780&width=640"
+                    alt="Thumbnail 2" onclick="setImage(2)">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_ba8a12dc-0809-4202-8c46-8de3af09289d.jpg?v=1728071781&width=640"
+                    alt="Thumbnail 3" onclick="setImage(3)">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_eca2eb66-9abd-4f9d-a2bf-25871c7e340e.jpg?v=1728071781&width=640"
+                    alt="Thumbnail 4" onclick="setImage(4)">
+                <img src="https://www.overstock.com/cdn/shop/files/SAFAVIEH-Madison-Coleen-Modern-Abstract-Rug_8768e80e-2af1-4027-938d-6fc2fc2fc935.jpg?v=1728071780&width=640"
+                    alt="Thumbnail 5" onclick="setImage(5)">
+            </div>
+        </div>
+
+        <!-- Right side: Product Details -->
+          <!-- Right side: Product Details -->
+        <div class="product-details">
+            <h1>SAFAVIEH Madison Coleen Modern Abstract Rug</h1>
+            <p class="price">Today $194.49</p>
+            <div class="color-selection">
+                <p>Color: Black/Gold</p>
+                <img src="path-to-color-sample.jpg" alt="Color Sample">
+            </div>
+            <div class="size-selection">
+                <label for="size">Size</label>
+                <select id="size">
+                    <option value="10x10">10' x 10' Round</option>
+                    <option value="8x8">8' x 8' Round</option>
+                </select>
+            </div>
+            <div class="quantity">
+                <button onclick="decrement()">-</button>
+                <input type="number" value="1" id="quantity">
+                <button onclick="increment()">+</button>
+            </div>
+            <button class="add-to-cart">Add to cart</button>
+            <p class="promotion">Buy More, Save More! Spend $1000, get 15% extra off your order!</p>
+        </div>
+    </div>
+
+    <!-- Expandable Sections -->
+    <div class="expandable-section">
+        <h2 onclick="toggleSection('description')">Description</h2>
+        <div id="description" class="content">
+            <p>
+                Introducing SAFAVIEH's exquisite contemporary Madison area rug. Constructed using advanced machine-made techniques in Turkey, this rug exemplifies durability and precision craftsmanship. The plush height of 3/8" offers a comfortable surface underfoot, perfect for everyday use. Its balanced composition of 57% Polypropylene, 30% Cotton, and 13% Polyester ensures not only a soft texture but also a product that's built to last. Additionally, it has been awarded the OEKO-TEX certification, guaranteeing that it's free from harmful substances and is safe for both your family and the environment. Elevate your home's ambiance with this striking area rug that effortlessly combines style, comfort, and safety</p>
+        </div>
+
+        <h2 onclick="toggleSection('reviews')">Reviews</h2>
+        <div id="reviews" class="content">
+            <p>No reviews yet.</p>
+        </div>
+
+        <h2 onclick="toggleSection('specifications')">Specifications</h2>
+        <div id="specifications" class="content">
+            <p>Material: 57% Polypropylene, 30% Cotton, 13% Polyester...</p>
+        </div>
+
+        <h2 onclick="toggleSection('returns')">Returns</h2>
+        <div id="returns" class="content">
+            <p>Return policy goes here.</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    
+    <div class="footer-container">
+        <!-- Footer top section for email sign-up -->
+        <div class="footer-top">
+            <p>Get an additional 15% off your first order + the craziest deals, straight to your inbox.</p>
+            <div class="email-signup">
+                <input type="email" placeholder="Your email" />
+                <button type="submit">Sign up for emails</button>
+            </div>
+        </div>
+
+        <!-- Main footer section -->
+        <div class="footer-main">
+            <div class="footer-section">
+                <p>
+                    Shop Overstock.com and find crazy-good deals on everything for your home
+                    and more. We work every day to bring you the best products at the best
+                    prices, from rugs and jewelry to furniture and decor. Whether you’re
+                    looking for memorable gifts or everyday treasures, find them here for
+                    less.
+                </p>
+                <div class="footer-socials">
+                    <a href="#">Facebook</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">X</a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h3>MY ACCOUNT</h3>
+                    <a href="#">Orders</a>
+                    <a href="#">Account Settings</a>
+                    <a href="#">Manage My Overstock Credit Cards</a>
+                </div>
+                <div class="footer-column">
+                    <h3>LET US HELP</h3>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Customer Care</a>
+                    <a href="#">Shipping Information</a>
+                    <a href="#">Return Policy</a>
+                    <a href="#">Accessibility</a>
+                    <a href="#">Frequently Asked Questions</a>
+                </div>
+                <div class="footer-column">
+                    <h3>COMPANY INFORMATION</h3>
+                    <a href="#">About Us</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Investor Relations</a>
+                    <a href="#">Newsroom</a>
+                    <a href="#">ESG (Environmental Social Governance)</a>
+                    <a href="#">Diversity & Inclusion</a>
+                    <a href="#">Corporate Philanthropy</a>
+                    <a href="#">Sell Your Products</a>
+                    <a href="#">Supply Chain Transparency</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
