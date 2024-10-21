@@ -231,6 +231,4 @@ function ascend(arr){
 }
 console.log(ascend([5,2,8,1,3]));
 
-//20. Find the GCD of two numbers 
-
-function 
+//20. Find the GCD of two number
