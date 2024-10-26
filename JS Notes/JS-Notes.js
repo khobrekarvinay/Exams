@@ -24,6 +24,28 @@ function Reverse(str){
 
 console.log(Reverse("abcdfrg"));
 
+//1a. Reverse string using Recursion  
+
+function reverse(str) {
+    if (str.length<=1){
+        return str;
+}
+return str[str.length -1] + reverse(str.slice(0,-1));
+// -1 means we set the range from right side. -1 is one position from right excluding it.
+// In every recursion we return last element and pop off last element from the str.
+// So reverse(str.slice(0,-1)) returns 2nd last, then 3rd last, then 4th last till it reach 1st.
+}
+
+//1b. Check if string is reverse of another
+
+function isReverse(str1,str2){
+    str2 = str2.split('').reverse().join('');
+    // split converts string to arr. reverse() works on arr only. and then
+    // join() converts the arr back to string
+    return str1 === str2;
+}
+
+
 // 2. Check Palindrome 
 //-> check first and last elements, then 2nd and 2nd last. If not same then not
 // palindrome
@@ -113,7 +135,25 @@ function ascend(arr){
 }
 console.log(ascend([5,2,8,1,3]));
 
-//7c. Sorting without using sort().
+//7c. Sorting without using sort(). Bubble Sort
+
+// We push largest number to the end, then exclude that element in next loop.
+// i loop contains mutiple j loops which keep pushing largest to the end by swapping.
+
+function bubbleSort(arr){
+    const n= arr.length;
+    for (let i=0; i<n ; i++){
+        for (let j=0; j<n-i-1; j++){
+
+            if (arr[j] > arr[j+1]){
+                [arr[j], arr[j+1]]= [arr[j+1], arr[j]];
+                // swapping without temp
+            }
+        }
+    }
+
+return arr;
+}
 
 
 
@@ -250,28 +290,19 @@ function Freq(arr){
 }
 console.log(Freq([1,1,3,52,3,324,234,4,3]));
 
-// 15b. Find the First Non-Repeating Character:
-// Question: Write a JavaScript function to find the first non-repeating character in a string.
-// ● Input: "aabbccddeef"
-// ○ Output: "f"
-// -> Map frequency of each element. Return the char that has value 1.
+// 15b. Find the first repeat element in an array 
+// Can be done with object mapping also but no need when you have includes()
+function findFirstRepeatedElement(arr) {
+    const seen = []; 
 
-function NonRepeating(str) {
-    result = {};
-    for (let i in str) {
-        if (result[str[i]]) {
-            result[str[i]]++;
+    for (let i = 0; i < arr.length; i++) {
+        if (seen.includes(arr[i])) {
+            return arr[i]; 
         }
-        else {
-            result[str[i]] = 1;
-        };
+        seen.push(arr[i]); 
     }
-    for (let char in result) {
-        if (result[char]==1){
-            return char;
-        }
-    }
-    return 'None';
+
+    return null;
 }
 
 //15c. Find the Majority Element:
@@ -283,27 +314,27 @@ function NonRepeating(str) {
 
 function Majority(str) {
     result = {};
-    for (let i in str) {
-        if (result[str[i]]) {
-            result[str[i]]++;
+    for (let i of str) {
+        if (result[i]) {
+            result[i]++;
         }
         else {
-            result[str[i]] = 1;  // 3 = 1
+            result[i] = 1;  // 3 = 1
         };
     }
     let maxCount = 0;
     let majorityElement;
     for (let char in result) {
       if (result[char] > maxCount) {
-        maxCount = result[char];
-        majorityElement = char;
-      }
+        maxCount= result[char];
+      majorityElement=char;
+    }
     }
     return majorityElement;} // 
 
 //
 
-//16.
+//16. 
 
 //17. Find the factorial of a number
 
@@ -332,7 +363,26 @@ function Fibonacci(n){
 }
 console.log(Fibonacci(10));
 
-//19. 
+//19. Find the longest common prefix in an array of Strings.
+
+// We first take the whole first word as prefix, then if next word doesnt includes prefix then 
+// remove last letter from prefix using slice. To repeat this multiple times for same word use
+// while. If there's a single different word the prefix gets cut to empty.
+
+function longestCommonPrefix(strs){
+    if (strs.length === 0) return ""; 
+
+    let prefix = strs[0]; 
+
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) { 
+            prefix = prefix.slice(0, prefix.length - 1); 
+            if (prefix === "") return ""; 
+        }
+    }
+    return prefix; 
+}
+
 
 
 //20. Find the GCD of two number
