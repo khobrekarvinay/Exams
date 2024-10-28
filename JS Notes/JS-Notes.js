@@ -77,6 +77,17 @@ return(`Maximum element is ${max}`);
 }
 console.log(maximum([1,2,3,4,5,6,9]));
 
+//3a. Find the second largest element in an Array 
+// -> Sort the array in decending and return 2nd element
+
+function second(str){
+    let g= str.sort((a,b)=> b-a);
+    return (`Second largest element is ${g[1]}`);
+}
+
+console.log(second([1,2,3,4,5,6]));
+
+
 
 //4. Sum of Array Elements 
 
@@ -104,21 +115,35 @@ console.log(prime(22));
 
 
 
-// 6. Find the second largest element in an Array 
-// -> Sort the array in decending and return 2nd element
-
-function second(str){
-    let g= str.sort((a,b)=> b-a);
-    return (`Second largest element is ${g[1]}`);
+// 6. Given an array having random numbers and zeros, move all zeros to the right.
+//-> If number isn't zero then push in result, else increment count of zeros.
+// Then add all the zeros in a second for loop.
+function movezeros(arr){
+    var index = 0; // 3
+    result = [];
+    for (let i of arr){
+        if (arr[i] !== 0){
+            result.push(arr[i]);
+        }
+        else{
+            index++;
+        }    
+    }
+    for (let i = 0; i <= index; i++) {
+        result.push(0);
+      }
+    return result;   
 }
+// console.log(movezeros([2,0,6,0,7,0,0,4,5]));
+// console.log(movezeros([2,0,6,0,7,0,0,7,8,9]));
 
-console.log(second([1,2,3,4,5,6]));
 
 // 7. Check array is sorted or not. 
 
 function checksort(str){
     for ( let i=0; i<str.length -1; i++){
         if ( str[i]> str[i+1]){
+            // if the next element is smaller than previous then false
             return false;
         }
     }
@@ -154,8 +179,6 @@ function bubbleSort(arr){
 
 return arr;
 }
-
-
 
 
 //8. Count vowels in a string 
@@ -228,6 +251,15 @@ function missing(arr) {
   
   console.log(missing([1, 2, 3, 4, 5, 7, 8]));
 
+  // When you give the n as input directly 
+
+  function missing(arr, n){
+
+    var result= (n*(n+1))/2; // 
+    var res = arr.reduce((total, num)=> total + num, 0);   
+    return result - res ;   
+}
+
 //12. Find intersection of two arrays
 //-> Again use includes. If element of arr1 is in arr2 then return. Use filter
 // for more simplified code. Filter helps to loop and perform action
@@ -239,8 +271,38 @@ function Intersect(arr1, arr2){
 
 console.log(Intersect([1,2,3],[3,4,5]));
 
-//13. 
+// 13. Find the Longest Substring and it's length.
+//-> Push every char one by one into empty substring array. Then put if() condition to check whether the value 
+// already exists. If it exists slice off everything from left till the index of repeated element,
 
+function lengthOfLongestSubstring(s) {
+    let maxLength = 0;          // To keep track of the longest substring length
+    let longestSubstring = "";  // To keep track of the longest substring itself
+    let currentSubstring = '';  // To store the current substring without repeats
+
+    // Loop through each character in the string
+    for (let char of s) {
+        // If the character is already in the current substring, remove everthing before it. 
+        // We are removing everthing before the repeated char because we want a continuous substring. Not simply
+        // any string not having repeating characters. 
+        if (currentSubstring.includes(char)) {
+            currentSubstring = currentSubstring.slice(currentSubstring.indexOf(char) + 1);
+            // If say currentsubstring is bcda and next char is d then all elements upto "d" are sliced
+            // leaving "a" in currentsubstring. And after the if() condition completes "d" is added to substring.
+        }
+        // Add every character to the substring. Doesn't matter if it's repeating or not
+        currentSubstring += char;
+
+        // Usual Max length and max string code
+        if (currentSubstring.length > maxLength) {
+            maxLength = currentSubstring.length;
+            longestSubstring = currentSubstring;  // Update the longest substring
+        }
+    }
+
+    console.log("Longest Substring:", longestSubstring);  // Print the longest substring
+    return maxLength;  // Return the length of the longest substring
+}
 
 
 //14. Rotate an aray by k positions
@@ -332,9 +394,30 @@ function Majority(str) {
     }
     return majorityElement;} // 
 
-//
 
-//16. 
+//16. Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+// Example 2:
+// Input: nums1 = [1,2], nums2 = [3,4]
+// Output: 2.50000
+// Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+
+function findMedianSortedArrays(nums1, nums2) {
+    // Merge the two sorted arrays
+    const merged = [...nums1, ...nums2].sort((a, b) => a - b);
+    
+    const length = merged.length;
+    
+    // As merged[] is already sorted, if it has an odd length, the middle element is automatically the median
+    if (length % 2 !== 0) {
+        return merged[Math.floor(length / 2)]; // 5/2 = 2.5, 3 
+    } else {
+        // If the merged array has an even length, return the average of the two middle elements
+        const mid1 = merged[length / 2 - 1];  // 6 /2 -1 = 2
+        const mid2 = merged[length / 2];    //6/2 = 3
+        return (mid1 + mid2) / 2;  
+    }
+}
+
 
 //17. Find the factorial of a number
 
@@ -344,6 +427,7 @@ function Fact(num){
     }
     else {
         return num* Fact(num-1);
+        // Recursion used.
     }
     
 }
@@ -351,7 +435,7 @@ console.log(Fact(5));
 
 //18. Find Fibonacci number at postion n
 //-> First 2 numbers must be pushed directly. From 3rd element push sum of previous 2 elements.
-
+// This solution is without recursion 
 function Fibonacci(n){
     result = [];
     result.push(0);
@@ -365,14 +449,15 @@ console.log(Fibonacci(10));
 
 //19. Find the longest common prefix in an array of Strings.
 
-// We first take the whole first word as prefix, then if next word doesnt includes prefix then 
-// remove last letter from prefix using slice. To repeat this multiple times for same word use
-// while. If there's a single different word the prefix gets cut to empty.
-
 function longestCommonPrefix(strs){
     if (strs.length === 0) return ""; 
 
     let prefix = strs[0]; 
+  // We first take the whole first word as prefix, then if next word doesnt includes prefix then 
+  // remove last letter from prefix using slice. We have to check whether the prefix exist at the beginning
+  // of the next work. For this use indexOf()==0, if true then no slicing needed, if false then repetedly slice
+  // till you get indexOf() as true. For this use while() loop. 
+  // If there's a single word not having prefix then while loop cuts the prefix to empty.
 
     for (let i = 1; i < strs.length; i++) {
         while (strs[i].indexOf(prefix) !== 0) { 
@@ -383,10 +468,8 @@ function longestCommonPrefix(strs){
     return prefix; 
 }
 
-
-
 //20. Find the GCD of two number
-
+//-> 
 
 //21. Implement a Function to Flatten a Nested Array:
 // Question: Write a JavaScript function to flatten a deeply nested array.
@@ -487,7 +570,7 @@ const orders = [
       // This is a shorter way of object mapping we have done before.
       // Here left side is key & right side is value. On first loop order.tableNumber value is none 
       // so the or condition (||) sets the value as 0. Then order.amount is added. So final left side is
-      // set to object.value .Then if the same tableNumber comes the previous saved order amount is 
+      // set to (0 + object.value) .Then if the same tableNumber is found the previous saved order amount is 
       // added to new one. 
       return acc;
     }, {});
@@ -515,7 +598,7 @@ const students = [
         // plus accumulator. 
       student.subjects.forEach(subject => {
         // We need to perform actions on the subjects which are inside the objects inside the subjects array. 
-        // so here we do student.subjects.forEach and give subject to access the subjects inside.
+        // so here we do student.subjects.forEach and give "subject" in parameter to access the subjects inside.
         acc[subject] = (acc[subject] || 0) + 1;
         // Same short method of object mapping. Just byheart it at this point.
       });
@@ -524,7 +607,6 @@ const students = [
   }
   
   console.log(countSubjects(students));
-  
   
 // Output should be { Math: 3, Science: 2, English: 1, History: 2 }
 
