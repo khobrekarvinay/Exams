@@ -1,11 +1,72 @@
 
 
+// What is Javascript ? 
+//-> JavaScript is a programming language used for creating dynamic content on websites. It is a lightweight,
+// cross-platform and single-threaded programming language. JavaScript is an interpreted language that executes 
+// code line by line providing more flexibility. 
+
+
+// VARIABLES
+
+//-> Variables are used to store data in JavaScript. Variables are used to store reusable values. The values of the
+// variables are allocated using the assignment operator(“=”).
+
+// JavaScript is a dynamically typed language so the type of variables is decided at runtime. Therefore there is 
+// no need to explicitly define the type of a variable. We can declare variables in JavaScript in three ways:
+// 1. var
+// 2. let
+// 3. const
+
+// Difference between var, let and const.
+
+// | Feature                  | var | let | const |
+// |--------------------------|-----|-----|-------|
+// | Stored in Global Scope   | ✅  | ❌  | ❌  |
+// | Limited to Block Scope   | ❌  | ✅  | ✅  |
+// | Limited to Function Scope| ✅  | ✅  | ✅  |
+// | Can Be Reassigned?       | ✅  | ✅  | ❌  |
+// | Can Be Redeclared?       | ✅  | ❌  | ❌  |
+// | Can Be Hoisted?**        | ✅  | ❌  | ❌  |
+
+// Scope refers to the area where a variable or function is accessible. Global refers to be accessible from anywhere.
+
+// Assigning is giving value to a variable & Declaring is using keyword to define the type of variable.
+    let name; // Declaration
+    name = "Alice"; // Assignment
+    let age = 25; // Declaration + Assignment
+
+// Explaining global, block & local scope.
+    let globalVar = "I am global";
+    function myFunction() {
+        let functionVar = "I am in function scope";
+        if (true) {
+            let blockVar = "I am in block scope";
+            console.log(globalVar); // ✅
+            console.log(functionVar); // ✅
+            console.log(blockVar); // ✅
+        }
+        console.log(globalVar); // ✅
+        console.log(functionVar); // ✅
+        console.log(blockVar); // ❌
+    }
+    myFunction();
+    console.log(globalVar); // ✅
+    console.log(functionVar); // ❌
+    console.log(blockVar); // ❌
+    
+//1. Const keyword is used when we assign a value permanently to a variable. So when we try to change the value of 
+// a variable declared with the const keyword it will throw an error. The variables declared with var and let are 
+// mutable that is their value can be changed but variables declared using const are immutable.
+
+//2. Keywords let and const are block scoped whereas var is function scoped. So when we try to access let and const
+// outside their block they will throw an error.
+
+//
 
 
 
 
-
-
+  
 
 // DATA STRUCTURES & ALGO 
 
