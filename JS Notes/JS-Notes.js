@@ -149,6 +149,21 @@ function second(str){
 console.log(second([1,2,3,4,5,6]));
 
 
+//Find all pairs with a given sum in an array. 
+
+function Pairswithsum(arr, targetsum){
+    let seenNumbers= new Set();
+    let pairs= [];
+
+    for (let num of arr) {
+        let target= targetsum- num;
+        if (seenNumbers.has(target)){
+            pairs.push([target, num]);
+        }
+        seenNumbers.add(num);
+    }
+    return pairs;
+}
 
 //4. Sum of Array Elements 
 
@@ -332,7 +347,7 @@ function Intersect(arr1, arr2){
 
 console.log(Intersect([1,2,3],[3,4,5]));
 
-// 13. Find the Longest Substring and it's length.
+// 13. Find the Longest Substring without repeating chars and it's length.
 //-> Push every char one by one into empty substring array. Then put if() condition to check whether the value 
 // already exists. If it exists slice off everything from left till the index of repeated element,
 
@@ -344,7 +359,7 @@ function lengthOfLongestSubstring(s) {
     // Loop through each character in the string
     for (let char of s) {
         // If the character is already in the current substring, remove everthing before it. 
-        // We are removing everthing before the repeated char because we want a continuous substring. Not simply
+        // We are removing the char itself and everything before it because we want a continuous substring. Not simply
         // any string not having repeating characters. 
         if (currentSubstring.includes(char)) {
             currentSubstring = currentSubstring.slice(currentSubstring.indexOf(char) + 1);
